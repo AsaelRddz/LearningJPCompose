@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun MyState(modifier: Modifier) {
@@ -28,11 +29,12 @@ fun MyState(modifier: Modifier) {
 }
 
 @Composable
-fun StateExample1(number : Int, onClick: () -> Unit) {
-    Text("Pulsame: $number", Modifier.clickable { onClick() })
+fun StateExample1(number: Int, onClick: () -> Unit) {
+    Text("Pulsame: $number", Modifier.clickable { onClick() }, color = Color.Red)
+
 }
 
 @Composable
-fun StateExample2(number : Int, onClick: () -> Unit) {
+fun StateExample2(number: Int, onClick: () -> Unit) {
     Text("Pulsame: $number", Modifier.clickable { onClick() })
 }

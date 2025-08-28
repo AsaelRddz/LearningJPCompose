@@ -18,7 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.learningjetpack.state.MyState
+import com.learningjetpack.components.MyTextField
+import com.learningjetpack.components.MyTextFieldParent
+import com.learningjetpack.components.MyTexts
 import com.learningjetpack.ui.theme.LearningJetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +33,8 @@ class MainActivity : ComponentActivity() {
                     //Greeting(
                      //   modifier = Modifier.padding(innerPadding)
                     //)
-                    MyState(modifier = Modifier.padding(innerPadding))
+                    //MyState(modifier = Modifier.padding(innerPadding))
+                    MyTextFieldParent(Modifier.padding(innerPadding))
                 }
             }
         }
