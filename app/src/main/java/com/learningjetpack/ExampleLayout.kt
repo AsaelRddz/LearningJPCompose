@@ -18,6 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.learningjetpack.components.MyButtons
+import com.learningjetpack.components.MyImage
 import com.learningjetpack.components.MyTextField
 import com.learningjetpack.components.MyTextFieldParent
 import com.learningjetpack.components.MyTexts
@@ -34,7 +36,8 @@ class MainActivity : ComponentActivity() {
                      //   modifier = Modifier.padding(innerPadding)
                     //)
                     //MyState(modifier = Modifier.padding(innerPadding))
-                    MyTextFieldParent(Modifier.padding(innerPadding))
+                    // MyButtons(Modifier.padding(innerPadding))
+                    MyImage(Modifier.padding(innerPadding))
                 }
             }
         }
