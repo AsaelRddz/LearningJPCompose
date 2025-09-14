@@ -18,11 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.learningjetpack.components.MyButtons
-import com.learningjetpack.components.MyImage
-import com.learningjetpack.components.MyTextField
-import com.learningjetpack.components.MyTextFieldParent
-import com.learningjetpack.components.MyTexts
+import com.learningjetpack.components.MyAppBar
+import com.learningjetpack.components.MyExposedDropDownMenu
+import com.learningjetpack.components.MyNavigationBar
 import com.learningjetpack.ui.theme.LearningJetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,13 +29,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LearningJetpackTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //Greeting(
-                     //   modifier = Modifier.padding(innerPadding)
-                    //)
-                    //MyState(modifier = Modifier.padding(innerPadding))
-                    // MyButtons(Modifier.padding(innerPadding))
-                    MyImage(Modifier.padding(innerPadding))
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = { MyAppBar(modifier = Modifier) },
+                    bottomBar = { MyNavigationBar(modifier = Modifier) }
+                ) { innerPadding ->
+                    MyExposedDropDownMenu(Modifier.padding(innerPadding))
                 }
             }
         }
