@@ -1,4 +1,4 @@
-package com.learningjetpack.components
+package com.learningjetpack.learning.components
 
 import android.util.Log
 import androidx.compose.foundation.Image

@@ -1,4 +1,4 @@
-package com.learningjetpack.components
+package com.learningjetpack.learning.components
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon

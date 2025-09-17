@@ -1,4 +1,4 @@
-package com.learningjetpack.components
+package com.learningjetpack.learning.components.basicNavigation
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.learningjetpack.R
-import com.learningjetpack.model.NavItem
+import com.learningjetpack.learning.model.NavItem
 
 
 @Composable

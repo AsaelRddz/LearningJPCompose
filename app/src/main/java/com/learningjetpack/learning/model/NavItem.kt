@@ -1,4 +1,4 @@
-package com.learningjetpack.model
+package com.learningjetpack.learning.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

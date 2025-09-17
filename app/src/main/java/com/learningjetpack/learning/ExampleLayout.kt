@@ -1,4 +1,4 @@
-package com.learningjetpack
+package com.learningjetpack.learning
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,16 +11,23 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.learningjetpack.components.MyAppBar
-import com.learningjetpack.components.MyExposedDropDownMenu
-import com.learningjetpack.components.MyNavigationBar
+import com.learningjetpack.learning.components.MyAdvanceList
+import com.learningjetpack.learning.components.MyLazyColumns
+import com.learningjetpack.learning.components.ScrollList
+import com.learningjetpack.learning.components.advance.MyDerivatedState
+import com.learningjetpack.learning.components.advance.MyInteractionSource
+import com.learningjetpack.learning.components.advance.MyLauncherEffect
+import com.learningjetpack.learning.components.basicNavigation.MyModalDrawer
 import com.learningjetpack.ui.theme.LearningJetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,12 +36,26 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LearningJetpackTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    topBar = { MyAppBar(modifier = Modifier) },
-                    bottomBar = { MyNavigationBar(modifier = Modifier) }
-                ) { innerPadding ->
-                    MyExposedDropDownMenu(Modifier.padding(innerPadding))
+                val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+                val scope = rememberCoroutineScope()
+
+                MyModalDrawer(drawerState) {
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize()/*,
+                        topBar = { MyAppBar(modifier = Modifier) },
+                        bottomBar = { MyNavigationBar(modifier = Modifier) }*/
+                    ) { innerPadding ->
+                        /*MyLazyColumns(
+                            Modifier.padding(innerPadding),
+                            onClick = {}
+                        )*/
+
+                        // MyInteractionSource(modifier = Modifier.padding(innerPadding))
+                        /*MyLazyColumns(Modifier.padding(innerPadding)) {
+
+                        }*/
+                        ScrollList(Modifier.padding(innerPadding))
+                    }
                 }
             }
         }
@@ -63,9 +84,6 @@ fun Greeting(modifier: Modifier = Modifier) {
             Text("Ejemplo 4")
         }
     }
-
-
-
 
 
     //  Column organiza sus hijos en vertical.
