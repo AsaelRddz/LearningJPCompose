@@ -28,6 +28,7 @@ import com.learningjetpack.learning.components.advance.MyDerivatedState
 import com.learningjetpack.learning.components.advance.MyInteractionSource
 import com.learningjetpack.learning.components.advance.MyLauncherEffect
 import com.learningjetpack.learning.components.basicNavigation.MyModalDrawer
+import com.learningjetpack.learning.components.navigation.NavigationWrapper
 import com.learningjetpack.ui.theme.LearningJetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,22 +41,26 @@ class MainActivity : ComponentActivity() {
                 val scope = rememberCoroutineScope()
 
                 MyModalDrawer(drawerState) {
-                    Scaffold(
-                        modifier = Modifier.fillMaxSize()/*,
+                    NavigationWrapper()
+
+/*                    Scaffold(
+                        modifier = Modifier.fillMaxSize()*//*,
                         topBar = { MyAppBar(modifier = Modifier) },
-                        bottomBar = { MyNavigationBar(modifier = Modifier) }*/
+                        bottomBar = { MyNavigationBar(modifier = Modifier) }*//*
                     ) { innerPadding ->
-                        /*MyLazyColumns(
+                        *//*MyLazyColumns(
                             Modifier.padding(innerPadding),
                             onClick = {}
-                        )*/
+                        )*//*
 
                         // MyInteractionSource(modifier = Modifier.padding(innerPadding))
-                        /*MyLazyColumns(Modifier.padding(innerPadding)) {
+                        *//*MyLazyColumns(Modifier.padding(innerPadding)) {
 
-                        }*/
-                        ScrollList(Modifier.padding(innerPadding))
-                    }
+                        }*//*
+                        // ScrollList(Modifier.padding(innerPadding))
+
+
+                    }*/
                 }
             }
         }
