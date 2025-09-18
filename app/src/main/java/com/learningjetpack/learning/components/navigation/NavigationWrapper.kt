@@ -49,7 +49,13 @@ fun NavigationWrapper() {
         // pasa primero por settingsModelTypes
         composable<Settings>(typeMap = mapOf(typeOf<SettingsModel>() to createNavType<SettingsModel>() /*settingsModelTypes*/)) { navBackStackEntry ->
             val settings = navBackStackEntry.toRoute<Settings>()
-            SettingsScreen(settingsModel = settings.set)
+            SettingsScreen(settingsModel = settings.set) {
+                navController.navigate(Login){
+                    // De principio se navega al Login y en la pila se encuentra otro Login
+                    // // inclusive = true: evita el doble Login
+                    popUpTo<Login>{ inclusive = true }
+                }
+            }
         }
     }
 }
