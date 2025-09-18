@@ -10,6 +10,7 @@ import com.learningjetpack.learning.components.navigation.examples.HomeScreen
 import com.learningjetpack.learning.components.navigation.examples.LoginScreen
 import com.learningjetpack.learning.components.navigation.examples.SettingsScreen
 import com.learningjetpack.learning.components.navigation.examples.model.SettingsModel
+import com.learningjetpack.learning.components.navigation.types.createNavType
 import com.learningjetpack.learning.components.navigation.types.settingsModelTypes
 import kotlin.reflect.typeOf
 
@@ -46,7 +47,7 @@ fun NavigationWrapper() {
 
         // typeMap = cada que se encuentre un objeto SettingsModel
         // pasa primero por settingsModelTypes
-        composable<Settings>(typeMap = mapOf(typeOf<SettingsModel>() to settingsModelTypes)) { navBackStackEntry ->
+        composable<Settings>(typeMap = mapOf(typeOf<SettingsModel>() to createNavType<SettingsModel>() /*settingsModelTypes*/)) { navBackStackEntry ->
             val settings = navBackStackEntry.toRoute<Settings>()
             SettingsScreen(settingsModel = settings.set)
         }

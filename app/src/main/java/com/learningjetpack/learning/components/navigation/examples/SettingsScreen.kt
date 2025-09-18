@@ -17,7 +17,9 @@ fun SettingsScreen(settingsModel: SettingsModel) {
         Spacer(Modifier.weight(1f))
         Text("Settings id: ${settingsModel.id}, darkMode: ${settingsModel.darkMode}", fontSize = 30.sp)
         Spacer(Modifier.weight(1f))
-        Button(onClick = { }) {
+        Button(onClick = {
+
+        }) {
             Text("Volver al inicio")
         }
         Spacer(Modifier.weight(1f))
