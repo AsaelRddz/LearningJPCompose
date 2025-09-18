@@ -12,15 +12,13 @@ import androidx.compose.ui.unit.sp
 import com.learningjetpack.learning.components.navigation.examples.model.SettingsModel
 
 @Composable
-fun DetailScreen(id : String, test : Boolean, navigateToSettings:(SettingsModel) -> Unit) {
-    val settingsModel = SettingsModel(id = "Prueba", darkMode = false)
-
+fun SettingsScreen(settingsModel: SettingsModel) {
     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.weight(1f))
-        Text("HOME: $id es $test", fontSize = 30.sp)
+        Text("Settings id: ${settingsModel.id}, darkMode: ${settingsModel.darkMode}", fontSize = 30.sp)
         Spacer(Modifier.weight(1f))
-        Button(onClick = { navigateToSettings(settingsModel) }) {
-            Text("Ajustes")
+        Button(onClick = { }) {
+            Text("Volver al inicio")
         }
         Spacer(Modifier.weight(1f))
     }

@@ -8,6 +8,10 @@ import androidx.navigation.toRoute
 import com.learningjetpack.learning.components.navigation.examples.DetailScreen
 import com.learningjetpack.learning.components.navigation.examples.HomeScreen
 import com.learningjetpack.learning.components.navigation.examples.LoginScreen
+import com.learningjetpack.learning.components.navigation.examples.SettingsScreen
+import com.learningjetpack.learning.components.navigation.examples.model.SettingsModel
+import com.learningjetpack.learning.components.navigation.types.settingsModelTypes
+import kotlin.reflect.typeOf
 
 
 // Desde aqui se controla toda la navegacion
@@ -35,9 +39,16 @@ fun NavigationWrapper() {
         composable<Detail> { navBackStackEntry ->
             // Aqui se va a recuperar ese valor
             val detail = navBackStackEntry.toRoute<Detail>()
-            DetailScreen(detail.id, detail.test){
-                navController.popBackStack()
-            }
+            DetailScreen(detail.id, detail.test) {
+                navController.navigate(Settings(it))
+            } // {navController.popBackStack()}
+        }
+
+        // typeMap = cada que se encuentre un objeto SettingsModel
+        // pasa primero por settingsModelTypes
+        composable<Settings>(typeMap = mapOf(typeOf<SettingsModel>() to settingsModelTypes)) { navBackStackEntry ->
+            val settings = navBackStackEntry.toRoute<Settings>()
+            SettingsScreen(settingsModel = settings.set)
         }
     }
 }
