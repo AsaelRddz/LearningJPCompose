@@ -30,13 +30,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.learningjetpack.R
 
 @Preview(showSystemUi = true)
 @Composable
-fun LoginScreen() {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
+    // connect view to viewmodel
+    val uiState by loginViewModel.uiState.collectAsStateWithLifecycle()
+
+    // var email by remember { mutableStateOf("") }
+    // var password by remember { mutableStateOf("") }
 
     Scaffold { padding ->
         Column(
@@ -57,23 +62,24 @@ fun LoginScreen() {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
-                value = email,
+                value = uiState.email,
                 label = { Text("Usuario, correo electrónico o móvil") },
-                onValueChange = { email = it })
+                onValueChange = { loginViewModel.onEmailChanged(it)  })
             Spacer(Modifier.height(10.dp))
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
-                value = password,
+                value = uiState.password,
                 label = { Text("Contraseña") },
-                onValueChange = { password = it })
+                onValueChange = { loginViewModel.onPasswordChanged(it) })
             Spacer(Modifier.height(10.dp))
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Blue
-                )
+                ),
+                enabled = uiState.isLoginEnabled
             ) {
                 Text(
                     "Inciar sesión",
